@@ -1,16 +1,16 @@
 package com.denisgithuku.notifications.viewmodels
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.*
 
 class MainViewModel(
     application: Application
 ) : AndroidViewModel(application){
 
     val input = MutableLiveData<String>()
+
+    private val _timeInput = MutableLiveData<String>()
+    val timeInput: LiveData<String> = _timeInput
 
 }
 

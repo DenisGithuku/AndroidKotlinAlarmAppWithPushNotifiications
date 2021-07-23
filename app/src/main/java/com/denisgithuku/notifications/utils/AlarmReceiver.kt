@@ -23,8 +23,8 @@ class AlarmReceiver: BroadcastReceiver() {
             channelId
         )
             .setSmallIcon(R.drawable.ic_launcher_background)
-            .setContentText("Testing from the notification")
-            .setContentTitle("Testing")
+            .setContentText("Please wake up before I beat you up")
+            .setContentTitle("Hallo")
             .setContentIntent(pendingIntent)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setAutoCancel(true)

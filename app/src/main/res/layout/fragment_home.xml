@@ -15,74 +15,35 @@
         android:layout_height="match_parent"
         tools:context=".ui.HomeFragment">
 
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
-            android:layout_width="match_parent"
+        <com.google.android.material.button.MaterialButtonToggleGroup
             android:layout_height="wrap_content"
-            android:paddingHorizontal="15dp"
-            android:paddingVertical="10dp"
-            app:boxBackgroundColor="@android:color/transparent"
-            app:boxBackgroundMode="outline"
-            app:boxCornerRadiusBottomEnd="16dp"
-            app:boxCornerRadiusBottomStart="16dp"
-            app:boxCornerRadiusTopEnd="16dp"
-            app:boxCornerRadiusTopStart="16dp"
-            app:boxStrokeColor="?attr/colorPrimary"
-            app:boxStrokeWidth="1dp"
+            android:layout_width="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.149"
-            app:placeholderText="Enter time"
-            app:placeholderTextColor="@color/black">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@={mainViewModel.input}" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/timeDisplayText"
-            android:layout_width="wrap_content"
-            android:textSize="20sp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/notifier"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/notifier"
-            android:text="Notify"
-            app:cornerRadius="32dp"
-            android:paddingHorizontal="30dp"
-            android:paddingVertical="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/timepicker_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="30dp"
-            android:paddingVertical="10dp"
-            android:text="Select time"
-            app:cornerRadius="32dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/notifier"
-            app:layout_constraintVertical_bias="0.444" />
+            app:layout_constraintVertical_bias="0.71">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/time_picker_btn"
+                android:layout_width="wrap_content"
+                android:paddingVertical="10dp"
+                app:strokeColor="?attr/colorPrimary"
+                android:text="Select Time"
+                android:textColor="?attr/colorPrimary"
+                android:paddingHorizontal="14dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_height="wrap_content"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/set_alarm_brn"
+                android:layout_width="wrap_content"
+                android:paddingVertical="10dp"
+                android:text="Set Alarm"
+                app:strokeColor="?attr/colorPrimary"
+                android:textColor="?attr/colorPrimary"
+                android:paddingHorizontal="14dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.button.MaterialButtonToggleGroup>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
