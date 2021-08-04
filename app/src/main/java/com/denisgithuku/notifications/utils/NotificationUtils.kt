@@ -14,7 +14,7 @@ import com.denisgithuku.notifications.ui.ExtrasFragment
 abstract class NotificationUtils {
     companion object {
 
-        val notificationId = 49876
+        private const val notificationId = 49876
 
         fun notificationUtils(context: Context, channelId: String) {
             val pendingIntent = NavDeepLinkBuilder(context)

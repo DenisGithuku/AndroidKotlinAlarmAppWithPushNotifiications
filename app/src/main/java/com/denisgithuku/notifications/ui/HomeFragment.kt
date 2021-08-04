@@ -1,9 +1,6 @@
 package com.denisgithuku.notifications.ui
 
-import android.app.AlarmManager
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
+import android.app.*
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -48,7 +45,6 @@ class HomeFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.mainViewModel = mainViewModel
         createNotificationsChannel(channelId, channelName)
-        calendar = Calendar.getInstance()
 
         binding.timePickerBtn.setOnClickListener {
             selectTime()
@@ -62,7 +58,7 @@ class HomeFragment : Fragment() {
     private fun selectTime() {
         //show a material timepicker to select time
         val isSystem24HourFormat = is24HourFormat(requireActivity())
-        val timeFormat = if(isSystem24HourFormat) TimeFormat.CLOCK_24H else TimeFormat.CLOCK_12H
+        val timeFormat = if(isSystem24HourFormat) TimeFormat.CLOCK_24H else CLOCK_12H
 
         val picker = MaterialTimePicker.Builder()
             .setHour(Date().hours)
@@ -73,7 +69,8 @@ class HomeFragment : Fragment() {
             .build()
 
         picker.addOnPositiveButtonClickListener {
-            calendar[Calendar.HOUR] = picker.hour
+            calendar = Calendar.getInstance()
+            calendar[Calendar.HOUR_OF_DAY] = picker.hour
             calendar[Calendar.MINUTE] = picker.minute
             calendar[Calendar.SECOND] = 0
             calendar[Calendar.MILLISECOND] = 0
@@ -85,7 +82,7 @@ class HomeFragment : Fragment() {
     private fun setAlarm() {
         //set the alarm using a pending intent
         val context = requireContext()
-        val alarmManager = requireContext().getSystemService(
+        val alarmManager = context.getSystemService(
             Context.ALARM_SERVICE
         ) as AlarmManager
 
@@ -105,7 +102,7 @@ class HomeFragment : Fragment() {
             pendingIntent
         )
 
-        Toast.makeText(requireContext(), "Alarm scheduled for: ${calendar.time} from now!!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), "Alarm scheduled for: ${calendar.time}", Toast.LENGTH_SHORT).show()
     }
 
 

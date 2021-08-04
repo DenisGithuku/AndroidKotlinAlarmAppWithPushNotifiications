@@ -27,7 +27,6 @@ class AlarmReceiver: BroadcastReceiver() {
             .setContentTitle("Hallo")
             .setContentIntent(pendingIntent)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
-            .setAutoCancel(true)
 
         val notificationManager = ContextCompat.getSystemService(
             context,
